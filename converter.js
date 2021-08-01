@@ -1,7 +1,12 @@
 function convert(text) {
   var matches;
 
-  matches = text.match(/([0-9]+(\.[0-9]+)?)\s*((c)?m)/);
+  matches = text.match(/^\s*([0-9])+m\s*([0-9]+)?\s*$/);
+  if (matches !== null) {
+    return convert(matches[1] + "." + (matches[2] || 0) + "m");
+  }
+
+  matches = text.match(/^\s*([0-9]+(\.[0-9]+)?)\s*((c)?m)\s*$/);
   if (matches !== null) {
     var unit = matches[3];
     var multiplier = (function () {
@@ -16,7 +21,7 @@ function convert(text) {
     return feet + "' " + inches + '"';
   }
 
-  matches = text.match(/([0-9]+)'\s*([0-9]+)"/);
+  matches = text.match(/^\s*([0-9]+)'\s*([0-9]+)"\s*$/);
   if (matches !== null) {
     var feet = parseInt(matches[1]);
     var inches = parseInt(matches[2]);

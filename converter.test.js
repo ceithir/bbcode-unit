@@ -13,4 +13,8 @@ describe("height", () => {
     expect(convert(`5' 3"`)).toBe("160cm");
     expect(convert(`6'11"`)).toBe("211cm");
   });
+  it("converts m into imperial", () => {
+    expect(convert("1.60m")).toBe(`5' 3"`);
+    expect(convert("2.10 m")).toBe(`6' 11"`);
+  });
 });

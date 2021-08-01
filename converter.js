@@ -1,9 +1,16 @@
 function convert(text) {
   var matches;
 
-  matches = text.match(/([0-9]+)\s*cm/);
+  matches = text.match(/([0-9]+(\.[0-9]+)?)\s*((c)?m)/);
   if (matches !== null) {
-    var cmHeight = parseInt(matches[1]);
+    var unit = matches[3];
+    var multiplier = (function () {
+      if (unit === "m") {
+        return 100;
+      }
+      return 1;
+    })();
+    var cmHeight = parseFloat(matches[1]) * multiplier;
     var feet = Math.floor(cmHeight / 30.48);
     var inches = Math.round((cmHeight - feet * 30.48) / 2.54);
     return feet + "' " + inches + '"';

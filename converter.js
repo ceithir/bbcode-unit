@@ -28,13 +28,13 @@ function convert(text) {
     return Math.round(feet * 30.48 + inches * 2.54) + " cm";
   }
 
-  matches = text.match(/^\s*([0-9]+(\.[0-9]+)?)\s*°\s*C\s*$/);
+  matches = text.match(/^\s*([0-9]+(\.[0-9]+)?)\s*°?\s*C\s*$/);
   if (matches !== null) {
     var celsius = parseFloat(matches[1]);
     return ((celsius * 9) / 5 + 32).toFixed(2) + "°F";
   }
 
-  matches = text.match(/^\s*([0-9]+(\.[0-9]+)?)\s*°\s*F\s*$/);
+  matches = text.match(/^\s*([0-9]+(\.[0-9]+)?)\s*°?\s*F\s*$/);
   if (matches !== null) {
     var fahrenheit = parseFloat(matches[1]);
     return (((fahrenheit - 32) * 5) / 9).toFixed(2) + "°C";

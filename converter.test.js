@@ -38,4 +38,8 @@ describe("temperature", () => {
     expect(convert("65 °F")).toBe("18.33°C");
     expect(convert("97.7°F")).toBe("36.50°C");
   });
+  it("can do without the degree symbol", () => {
+    expect(convert("85F")).toBe("29.44°C");
+    expect(convert("18C")).toBe("64.40°F");
+  });
 });

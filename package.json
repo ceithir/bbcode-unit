@@ -3,6 +3,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "jest": "^27.0.6"
+    "jest": "^27.0.6",
+    "uglify-js": "^3.14.1"
   }
 }

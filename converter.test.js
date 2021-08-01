@@ -26,3 +26,16 @@ describe("height", () => {
     expect(convert(`5' 3`)).toBe("160cm");
   });
 });
+
+describe("temperature", () => {
+  it("converts Celsius into Fahrenheit", () => {
+    expect(convert("29° C")).toBe("84.20°F");
+    expect(convert("18 °C")).toBe("64.40°F");
+    expect(convert("36.5°C")).toBe("97.70°F");
+  });
+  it("converts Fahrenheit into Celsius", () => {
+    expect(convert("85° F")).toBe("29.44°C");
+    expect(convert("65 °F")).toBe("18.33°C");
+    expect(convert("97.7°F")).toBe("36.50°C");
+  });
+});

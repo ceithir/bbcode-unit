@@ -10,8 +10,8 @@ describe("height", () => {
     expect(convert("210 cm")).toBe(`6' 11"`);
   });
   it("converts imperial into cm", () => {
-    expect(convert(`5' 3"`)).toBe("160cm");
-    expect(convert(`6'11"`)).toBe("211cm");
+    expect(convert(`5' 3"`)).toBe("160 cm");
+    expect(convert(`6'11"`)).toBe("211 cm");
   });
   it("converts m into imperial", () => {
     expect(convert("1.60m")).toBe(`5' 3"`);
@@ -23,7 +23,7 @@ describe("height", () => {
     expect(convert("1m")).toBe(`3' 3"`);
   });
   it("converts weirdly formatted inches into cm", () => {
-    expect(convert(`5' 3`)).toBe("160cm");
+    expect(convert(`5' 3`)).toBe("160 cm");
   });
 });
 

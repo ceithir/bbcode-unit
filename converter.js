@@ -25,7 +25,7 @@ function convert(text) {
   if (matches !== null) {
     var feet = parseInt(matches[1]);
     var inches = parseInt(matches[2]);
-    return Math.round(feet * 30.48 + inches * 2.54) + "cm";
+    return Math.round(feet * 30.48 + inches * 2.54) + " cm";
   }
 
   matches = text.match(/^\s*([0-9]+(\.[0-9]+)?)\s*°\s*C\s*$/);

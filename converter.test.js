@@ -22,4 +22,7 @@ describe("height", () => {
     expect(convert("2m 10")).toBe(`6' 11"`);
     expect(convert("1m")).toBe(`3' 3"`);
   });
+  it("converts weirdly formatted inches into cm", () => {
+    expect(convert(`5' 3`)).toBe("160cm");
+  });
 });

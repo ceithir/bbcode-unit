@@ -21,7 +21,7 @@ function convert(text) {
     return feet + "' " + inches + '"';
   }
 
-  matches = text.match(/^\s*([0-9]+)'\s*([0-9]+)"\s*$/);
+  matches = text.match(/^\s*([0-9]+)'\s*([0-9]+)"?\s*$/);
   if (matches !== null) {
     var feet = parseInt(matches[1]);
     var inches = parseInt(matches[2]);

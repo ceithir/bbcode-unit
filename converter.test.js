@@ -4,6 +4,10 @@ test("non-sensical entries are returned as is", () => {
   expect(convert("1000efhkfuef")).toBe("1000efhkfuef");
 });
 
+test("values are trimmed", () => {
+  expect(convert("  160cm   ")).toBe(`5' 3"`);
+});
+
 describe("height", () => {
   it("converts cm into imperial", () => {
     expect(convert("160cm")).toBe(`5' 3"`);

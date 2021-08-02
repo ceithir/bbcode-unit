@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "uglifyjs --compress --mangle -- converter.js"
   },
   "dependencies": {
     "jest": "^27.0.6",

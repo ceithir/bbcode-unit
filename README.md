@@ -78,7 +78,7 @@ yarn test
 
 ```
 yarn install
-./node_modules/uglify-js/bin/uglifyjs --compress --mangle -- converter.js
+yarn build
 ```
 
 Remove the `module.exports=convert;` at the end manually.

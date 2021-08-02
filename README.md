@@ -67,7 +67,7 @@ Output:
 80 F (26.67°C)
 
 aaa (???)
-[unit]` + alert('toto'));(`[/unit]
+[unit]` + alert('Hacker!'));(`[/unit]
 ```
 
 ## Known limitations

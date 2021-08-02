@@ -72,7 +72,7 @@ aaa (???)
 
 ## Known limitations
 
-- The tool has no way to differentiate between 1,000 (one thousand with comma thousand separators) and 1,000 (one with comma decimal separator) and will interpret the number as if it was the first.
+- The tool has no way to differentiate between 1,000 (one thousand with comma thousand separator) and 1,000 (one with comma decimal separator) and will interpret the number as if it was the first.
 - Nothing will be converted on Internet Explorer.
 
 In all cases, the original value will still be shown.

@@ -16,7 +16,7 @@ In the second field, enter:
 <span>{REGEXP}
 <script>
 document.write((function () {
-function convert(t){var s=t.match(/^\s*([0-9])+m\s*([0-9]+)?\s*$/);if(null!==s)return convert(s[1]+"."+(s[2]||0)+"m");if(null!==(s=t.match(/^\s*([0-9]+(\.[0-9]+)?)\s*((c)?m)\s*$/))){var r="m"===s[3]?100:1,a=parseFloat(s[1])*r;return(r=Math.floor(a/30.48))+"' "+(a=Math.round((a-30.48*r)/2.54))+'"'}if(null===(s=t.match(/^\s*([0-9]+)'\s*([0-9]+)"?\s*$/)))return null!==(s=t.match(/^\s*([0-9]+(\.[0-9]+)?)\s*°?\s*C\s*$/))?(9*parseFloat(s[1])/5+32).toFixed(2)+"°F":null===(s=t.match(/^\s*([0-9]+(\.[0-9]+)?)\s*°?\s*F\s*$/))?t:(5*(parseFloat(s[1])-32)/9).toFixed(2)+"°C";r=parseInt(s[1]),a=parseInt(s[2]);return Math.round(30.48*r+2.54*a)+" cm"}
+function convert(t){var e;if(null!==(e=(t=(t=(t=t.replace(/\s+/g,"")).replace(/([0-9]+),([0-9]{3})/g,"$1$2")).replace(/,/g,".")).match(/^([0-9])+m([0-9]+)?$/)))return convert(e[1]+"."+(e[2]||0)+"m");if(null!==(e=t.match(/^([0-9]+(\.[0-9]+)?)((c)?m)$/))){var l="m"===e[3]?100:1,a=parseFloat(e[1])*l;return(l=Math.floor(a/30.48))+"' "+(a=Math.round((a-30.48*l)/2.54))+'"'}if(null===(e=t.match(/^([0-9]+)'([0-9]+)"?$/)))return null!==(e=t.match(/^([0-9]+(\.[0-9]+)?)°?C$/))?(9*parseFloat(e[1])/5+32).toFixed(2)+"°F":null!==(e=t.match(/^([0-9]+(\.[0-9]+)?)°?F$/))?(5*(parseFloat(e[1])-32)/9).toFixed(2)+"°C":null!==(e=t.match(/^([0-9]+(\.[0-9]+)?)mi(\.|les)?$/))?(1.609344*parseFloat(e[1])).toFixed(2)+" km":null===(e=t.match(/^([0-9]+(\.[0-9]+)?)km$/))?null:(parseFloat(e[1])/1.609344).toFixed(2)+" miles";l=parseInt(e[1]),a=parseInt(e[2]);return Math.round(30.48*l+2.54*a)+" cm"}
 
 var result = convert(`{REGEXP}`);
 if (!result) { return ' (???)'; }
@@ -38,6 +38,10 @@ Input:
 [unit]175cm[/unit]
 [unit]5'6"[/unit]
 
+[unit]1,136 miles[/unit]
+[unit]7 mi[/unit]
+[unit]241 km[/unit]
+
 [unit]30°C[/unit]
 [unit]80 F[/unit]
 
@@ -48,16 +52,20 @@ Input:
 Output:
 
 ```
-1m 60 / 5' 3"
-1.85 m / 6' 1"
-175cm / 5' 9"
-5'6" / 168 cm
+1m 60 (5' 3")
+1.85 m (6' 1")
+175cm (5' 9")
+5'6" (168 cm)
 
-30°C / 86.00°F
-80 F / 26.67°C
+1,136 miles (1828.21 km)
+7 mi (11.27 km)
+241 km (149.75 miles)
 
-aaa / aaa
-[unit]` + alert('Hacker!'));(`[/unit]
+30°C (86.00°F)
+80 F (26.67°C)
+
+aaa (???)
+[unit]` + alert('toto'));(`[/unit]
 ```
 
 ## Known limitations

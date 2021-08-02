@@ -58,4 +58,9 @@ describe("distance", () => {
   it("converts km to miles", () => {
     expect(convert("241km")).toBe("149.75 miles");
   });
+  it("handles just plain weird formats", () => {
+    expect(convert("1,136 mi")).toBe("1828.21 km");
+    expect(convert("1 609.344km")).toBe("1000.00 miles");
+    expect(convert("20,1 km")).toBe("12.49 miles");
+  });
 });

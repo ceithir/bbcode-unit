@@ -1,7 +1,6 @@
 function convert(text) {
   text = text.replace(/\s+/g, "");
-  text = text.replace(/([0-9]+),([0-9]{3}(\D+|$))/g, "$1$2");
-  text = text.replace(/,/g, ".");
+  text = text.replace(/,/g, "");
 
   var matches;
 

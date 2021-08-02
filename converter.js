@@ -42,6 +42,6 @@ function convert(text) {
     return (((fahrenheit - 32) * 5) / 9).toFixed(2) + "°C";
   }
 
-  return text;
+  return null;
 }
 module.exports = convert;

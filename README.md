@@ -17,7 +17,10 @@ In the second field, enter:
 <script>
 document.write((function () {
 function convert(t){var s=t.match(/^\s*([0-9])+m\s*([0-9]+)?\s*$/);if(null!==s)return convert(s[1]+"."+(s[2]||0)+"m");if(null!==(s=t.match(/^\s*([0-9]+(\.[0-9]+)?)\s*((c)?m)\s*$/))){var r="m"===s[3]?100:1,a=parseFloat(s[1])*r;return(r=Math.floor(a/30.48))+"' "+(a=Math.round((a-30.48*r)/2.54))+'"'}if(null===(s=t.match(/^\s*([0-9]+)'\s*([0-9]+)"?\s*$/)))return null!==(s=t.match(/^\s*([0-9]+(\.[0-9]+)?)\s*°?\s*C\s*$/))?(9*parseFloat(s[1])/5+32).toFixed(2)+"°F":null===(s=t.match(/^\s*([0-9]+(\.[0-9]+)?)\s*°?\s*F\s*$/))?t:(5*(parseFloat(s[1])-32)/9).toFixed(2)+"°C";r=parseInt(s[1]),a=parseInt(s[2]);return Math.round(30.48*r+2.54*a)+" cm"}
-return ' / ' + convert(`{REGEXP}`);
+
+var result = convert(`{REGEXP}`);
+if (!result) { return ' (???)'; }
+return ' / ' + result;
 })())
 </script>
 </span>

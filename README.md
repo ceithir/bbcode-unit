@@ -20,7 +20,7 @@ function convert(t){var s=t.match(/^\s*([0-9])+m\s*([0-9]+)?\s*$/);if(null!==s)r
 
 var result = convert(`{REGEXP}`);
 if (!result) { return ' (???)'; }
-return ' / ' + result;
+return ' (' + result + ')';
 })())
 </script>
 </span>

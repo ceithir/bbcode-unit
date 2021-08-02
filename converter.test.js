@@ -48,3 +48,14 @@ describe("temperature", () => {
     expect(convert("18C")).toBe("64.40°F");
   });
 });
+
+describe("distance", () => {
+  it("converts miles to km", () => {
+    expect(convert("150 miles")).toBe("241.40 km");
+    expect(convert("7 mi")).toBe("11.27 km");
+    expect(convert("22 mi.")).toBe("35.41 km");
+  });
+  it("converts km to miles", () => {
+    expect(convert("241km")).toBe("149.75 miles");
+  });
+});

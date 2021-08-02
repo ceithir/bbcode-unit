@@ -42,6 +42,18 @@ function convert(text) {
     return (((fahrenheit - 32) * 5) / 9).toFixed(2) + "°C";
   }
 
+  matches = text.match(/^([0-9]+(\.[0-9]+)?)mi(\.|les)?$/);
+  if (matches !== null) {
+    var miles = parseFloat(matches[1]);
+    return (miles * 1.609344).toFixed(2) + " km";
+  }
+
+  matches = text.match(/^([0-9]+(\.[0-9]+)?)km$/);
+  if (matches !== null) {
+    var km = parseFloat(matches[1]);
+    return (km / 1.609344).toFixed(2) + " miles";
+  }
+
   return null;
 }
 module.exports = convert;

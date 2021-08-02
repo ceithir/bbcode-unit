@@ -5,11 +5,6 @@ function convert(text) {
 
   var matches;
 
-  matches = text.match(/^([0-9]+)m([0-9]+)?$/);
-  if (matches !== null) {
-    return convert(matches[1] + "." + (matches[2] || 0) + "m");
-  }
-
   matches = text.match(/^([0-9]+(\.[0-9]+)?)((c)?m)$/);
   if (matches !== null) {
     var unit = matches[3];
@@ -23,6 +18,11 @@ function convert(text) {
     var feet = Math.floor(cmHeight / 30.48);
     var inches = Math.round((cmHeight - feet * 30.48) / 2.54);
     return feet + "' " + inches + '"';
+  }
+
+  matches = text.match(/^([0-9]+)m([0-9]+)?$/);
+  if (matches !== null) {
+    return convert(matches[1] + "." + (matches[2] || 0) + "m");
   }
 
   matches = text.match(/^([0-9]+)'([0-9]+)"?$/);

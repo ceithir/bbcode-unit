@@ -16,7 +16,7 @@ In the second field, enter:
 <span>{REGEXP}
 <script>
 document.write((function () {
-function convert(t){var e;if(null!==(e=(t=(t=(t=t.replace(/\s+/g,"")).replace(/([0-9]+),([0-9]{3})/g,"$1$2")).replace(/,/g,".")).match(/^([0-9])+m([0-9]+)?$/)))return convert(e[1]+"."+(e[2]||0)+"m");if(null!==(e=t.match(/^([0-9]+(\.[0-9]+)?)((c)?m)$/))){var l="m"===e[3]?100:1,a=parseFloat(e[1])*l;return(l=Math.floor(a/30.48))+"' "+(a=Math.round((a-30.48*l)/2.54))+'"'}if(null===(e=t.match(/^([0-9]+)'([0-9]+)"?$/)))return null!==(e=t.match(/^([0-9]+(\.[0-9]+)?)°?C$/))?(9*parseFloat(e[1])/5+32).toFixed(2)+"°F":null!==(e=t.match(/^([0-9]+(\.[0-9]+)?)°?F$/))?(5*(parseFloat(e[1])-32)/9).toFixed(2)+"°C":null!==(e=t.match(/^([0-9]+(\.[0-9]+)?)mi(\.|les)?$/))?(1.609344*parseFloat(e[1])).toFixed(2)+" km":null===(e=t.match(/^([0-9]+(\.[0-9]+)?)km$/))?null:(parseFloat(e[1])/1.609344).toFixed(2)+" miles";l=parseInt(e[1]),a=parseInt(e[2]);return Math.round(30.48*l+2.54*a)+" cm"}
+function convert(t){var e;if(null!==(e=(t=(t=(t=t.replace(/\s+/g,"")).replace(/([0-9]+),([0-9]{3})/g,"$1$2")).replace(/,/g,".")).match(/^([0-9]+(\.[0-9]+)?)((c)?m)$/))){var r=parseFloat(e[1]),l=e[3];if("m"===l&&100<=r)return convert(r/1e3+"km");r=r*("m"===l?100:1);return(l=Math.floor(r/30.48))+"' "+(r=Math.round((r-30.48*l)/2.54))+'"'}if(null!==(e=t.match(/^([0-9]+)m([0-9]+)?$/)))return convert(e[1]+"."+(e[2]||0)+"m");if(null===(e=t.match(/^([0-9]+)'([0-9]+)"?$/)))return null!==(e=t.match(/^([0-9]+(\.[0-9]+)?)°?C$/))?(9*parseFloat(e[1])/5+32).toFixed(2)+"°F":null!==(e=t.match(/^([0-9]+(\.[0-9]+)?)°?F$/))?(5*(parseFloat(e[1])-32)/9).toFixed(2)+"°C":null!==(e=t.match(/^([0-9]+(\.[0-9]+)?)mi(\.|les)?$/))?(1.609344*parseFloat(e[1])).toFixed(2)+" km":null===(e=t.match(/^([0-9]+(\.[0-9]+)?)km$/))?null:(parseFloat(e[1])/1.609344).toFixed(2)+" miles";l=parseInt(e[1]),r=parseInt(e[2]);return Math.round(30.48*l+2.54*r)+" cm"}
 
 var result = convert(`{REGEXP}`);
 if (!result) { return ' (???)'; }
@@ -41,6 +41,7 @@ Input:
 [unit]1,136 miles[/unit]
 [unit]7 mi[/unit]
 [unit]241 km[/unit]
+[unit]1500 m[/unit]
 
 [unit]30°C[/unit]
 [unit]80 F[/unit]
@@ -60,6 +61,7 @@ Output:
 1,136 miles (1828.21 km)
 7 mi (11.27 km)
 241 km (149.75 miles)
+1500 m (0.93 miles)
 
 30°C (86.00°F)
 80 F (26.67°C)

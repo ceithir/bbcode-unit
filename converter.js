@@ -5,7 +5,7 @@ function convert(text) {
 
   var matches;
 
-  matches = text.match(/^([0-9])+m([0-9]+)?$/);
+  matches = text.match(/^([0-9]+)m([0-9]+)?$/);
   if (matches !== null) {
     return convert(matches[1] + "." + (matches[2] || 0) + "m");
   }

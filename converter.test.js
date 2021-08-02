@@ -63,5 +63,6 @@ describe("distance", () => {
     expect(convert("1,136 mi")).toBe("1828.21 km");
     expect(convert("1 609.344km")).toBe("1000.00 miles");
     expect(convert("20,1 km")).toBe("12.49 miles");
+    expect(convert("1500m")).toBe("0.93 miles");
   });
 });
